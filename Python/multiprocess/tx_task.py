@@ -97,7 +97,9 @@ class ProcessPool(object):
         self._maintainer.start()
 
     def _maintainer_thread(self):
+        print "_maintainer_thread enter"
         thread = threading.current_thread()
+        print "thread._state:", thread._state
         while thread._state == self.RUN:
             if self._join_exited_workers():
                 self._repopulate_pool()
@@ -119,9 +121,11 @@ class ProcessPool(object):
         print("Graceful exiting...")
 
     def _join_exited_workers(self):
+        print "_join_exited_workers enter"
         cleaned = False
         for i in reversed(range(len(self._pool))):
             worker = self._pool[i]
+            print "worker.exitcode:", worker.exitcode
             if worker.exitcode is not None:
                 # worker exited
                 print('cleaning up worker ', i)
@@ -134,10 +138,12 @@ class ProcessPool(object):
         # worker process ignore ctrl+c
         signal.signal(signal.SIGINT, signal.SIG_IGN)
         signal.signal(signal.SIGTERM, signal.SIG_DFL)
+        print "_pool_worker enter"
 
         while True:
             try:
                 tx_id = self.taskqueue.get()
+                print "_pool_worker.tx_id:", tx_id
             except (EOFError, IOError):
                 break
 
