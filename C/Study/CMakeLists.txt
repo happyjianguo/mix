@@ -3,5 +3,5 @@ project(Study)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(SOURCE_FILES main.c)
+set(SOURCE_FILES main.c process.c libeve_event_base.c getopt.c)
 add_executable(Study ${SOURCE_FILES})
