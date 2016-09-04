@@ -1,5 +1,5 @@
 =erl_crash_dump:0.3
-Sun Sep  4 17:05:24 2016
+Sun Sep  4 17:30:23 2016
 Slogan: init terminating in do_boot ()
 System version: Erlang/OTP 17 [erts-6.1] [source] [64-bit] [smp:4:4] [async-threads:10] [hipe] [kernel-poll:false]
 Compiled: Tue Jan  6 10:16:02 2015
@@ -2281,7 +2281,7 @@ State: Running
 Name: init
 Spawned as: otp_ring0:start/2
 Spawned by: []
-Started: Sun Sep  4 17:05:24 2016
+Started: Sun Sep  4 17:30:23 2016
 Message queue length: 0
 Number of heap fragments: 0
 Heap fragment data: 0
@@ -2299,7 +2299,7 @@ State: Waiting
 Name: init__boot__on_load_handler
 Spawned as: erlang:apply/2
 Spawned by: <0.0.0>
-Started: Sun Sep  4 17:05:24 2016
+Started: Sun Sep  4 17:30:23 2016
 Message queue length: 0
 Number of heap fragments: 0
 Heap fragment data: 0
@@ -2317,7 +2317,7 @@ State: Waiting
 Name: erl_prim_loader
 Spawned as: erlang:apply/2
 Spawned by: <0.2.0>
-Started: Sun Sep  4 17:05:24 2016
+Started: Sun Sep  4 17:30:23 2016
 Message queue length: 0
 Number of heap fragments: 0
 Heap fragment data: 0
