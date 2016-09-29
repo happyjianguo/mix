@@ -4,5 +4,12 @@
 
 {% block content %}
 {% include 'ad.html' %}
-这里是首页，欢迎光临
+这里是首页，欢迎光临 {{string}}
+
+<p>{{info_dict.name}}</p>
+
+{% for i in TutorialList %}
+{{i}}
+{% endfor %}
+
 {% endblock %}
