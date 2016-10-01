@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from flask import Flask, url_for, render_template, request, make_response
+import logging
 app = Flask(__name__)
 
 
@@ -34,4 +35,9 @@ def login():
 
 if __name__ == '__main__':
     app.debug = True
+    if not app.debug:
+        from themodule import SysLogHandler
+        file_handler = SysLogHandler()
+        file_handler.setLevel(logging.WARNING)
+        app.logger.addHandler(file_handler)
     app.run()
