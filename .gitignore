@@ -19,6 +19,8 @@ target/
 *.ipr
 *.iml
 *.iws
+/*/target/*
+/*/*/target/*
 
 # temp ignore
 *.log
