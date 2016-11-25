@@ -1,0 +1,77 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>me.ele.pts</groupId>
+    <artifactId>immortal</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>immortal-api</module>
+        <module>immortal-service</module>
+        <module>immortal-common</module>
+    </modules>
+    <packaging>pom</packaging>
+
+    <name>immortal</name>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <!--服务版本定义-->
+        <service-version>1.0-SNAPSHOT</service-version>
+        <java-version>1.8</java-version>
+
+        <!-- 框架依赖版本定义 -->
+        <pylon-core-version>2.0.16</pylon-core-version>
+        <spring-framework-version>4.2.1.RELEASE</spring-framework-version>
+
+        <!--测试依赖版本定义-->
+        <junit-version>4.11</junit-version>
+        <mockito-version>2.0.2-beta</mockito-version>
+    </properties>
+
+
+    <build>
+        <plugins>
+            <!--java 编译版本定义-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.5.1</version>
+                <configuration>
+                    <source>${java-version}</source>
+                    <target>${java-version}</target>
+                    <compilerArgument>-parameters</compilerArgument>
+                </configuration>
+            </plugin>
+            <!-- 生成sources源码包的插件 -->
+            <plugin>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <attach>true</attach>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <!--发布仓库定义-->
+    <distributionManagement>
+        <repository>
+            <id>ele-bpm-release</id>
+            <url>http://maven.dev.elenet.me/nexus/content/repositories/ele-bpm-release/</url>
+        </repository>
+        <snapshotRepository>
+            <id>ele-bpm-snapshots</id>
+            <url>http://maven.dev.elenet.me/nexus/content/repositories/ele-bpm-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+</project>
