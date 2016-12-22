@@ -1,15 +1,23 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper
-        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- namespace必须是唯一的，建议用该文件所在的包路径全类名 -->
 <mapper namespace="test.mybatis.StudentMapper">
+    <resultMap id="BaseResultMap" type="test.mybatis.Student">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="updated_at" property="updatedAt" jdbcType="DATE"/>
+    </resultMap>
     <!-- select：表示这是一个查询操作 -->
     <!-- id：用来配合namespace来定位这个操作，也就是在调用时，将采用test.mybatis.StudentMapper.getStudent -->
     <!-- resultType：表示返回值类型，必须是全类名，MyBatis将自动为我们将查询结果封装成Student对象 -->
     <!-- parameterType：表示传进来的参数的类型，因为传的是id主键，所以是int型 -->
-    <select id="getStudent" parameterType="int" resultType="test.mybatis.Student">
-        <!-- #{id}：表示占位符，也就是调用时必须为其传一个id参数进来，注意是#不是$ -->
-        select * from students where id = #{id}
+    <sql id="Selected_Column_List">
+        id, name, updated_at
+    </sql>
+    <select id="getStudent" resultMap="BaseResultMap" resultType="test.mybatis.Student">
+        select
+        <include refid="Selected_Column_List"/>
+        from students
+        where updated_at &gt; #{updatedAt,jdbcType=DATE}
     </select>
 </mapper>

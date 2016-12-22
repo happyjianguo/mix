@@ -5,6 +5,8 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.io.InputStream;
+import java.util.Date;
+import java.util.List;
 
 /**
  * Created by joshua on 16/12/13.
@@ -35,9 +37,11 @@ public class StudentDao {
         // 4.1) statement: 用来定位映射文件（StudentMapper.xml）中的语句（通过namespace id + select id)
         String statement = "test.mybatis.StudentMapper.getStudent";
         // 4.2) paramter: 传进去的参数，也就是需要获取students表中主键值为1的记录
-        int parameter = 1;
+        Date startDate = new Date();
+        long startTime = (startDate.getTime() / 1000) - 100;
+        startDate.setTime(startTime);
         // 5. SqlSession 实例来直接执行已映射的 SQL 语句，selectOne表示获取的是一条记录
-        Student student = session.selectOne(statement, parameter);
+        Student student = session.selectOne(statement, startDate);
         System.out.println(student);
         // 6. 关闭输入流和SqlSession实例
         in.close();
