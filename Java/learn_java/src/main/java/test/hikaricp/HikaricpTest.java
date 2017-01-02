@@ -45,6 +45,14 @@ public class HikaricpTest {
 
     public static void main(String[] args) throws SQLException {
         HikaricpTest hikaricpTest = new HikaricpTest();
+        // three methods to get class
+        System.out.println(hikaricpTest.getClass());
+        System.out.println(HikaricpTest.class);
+        try {
+            System.out.println(Class.forName("test.hikaricp.HikaricpTest"));
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         hikaricpTest.init(10, 50);
         Connection conn = hikaricpTest.getConnection();
         String sql = "select * from user";
