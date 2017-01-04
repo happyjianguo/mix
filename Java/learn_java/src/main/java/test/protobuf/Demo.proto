@@ -1,0 +1,15 @@
+//定义proto版本
+syntax = "proto2";
+
+//当protoc生成.java时候的package name
+option java_package = "test.protobuf";
+
+//生成一个Person的类（结构体）
+message Person{
+  //required 表示该属性是必须
+  required string name = 1;
+  required int32 age = 2;
+  //optional 表示该属性是可选
+  optional string from = 3;
+  //还有repeated、reserved等关键字段自行查询了
+}
