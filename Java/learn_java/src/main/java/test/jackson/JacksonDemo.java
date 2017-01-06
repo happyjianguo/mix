@@ -42,5 +42,14 @@ public class JacksonDemo {
         users.add(user);
         String jsonlist = mapper.writeValueAsString(users);
         System.out.println(jsonlist);
+
+
+        String jsonString = "{\"name\":\"小民\",\"age\":20,\"birthday\":844099200000,\"email\":\"xiaomin@sina.com\"}";
+        /**
+         * ObjectMapper支持从byte[]、File、InputStream、字符串等数据的JSON反序列化。
+         */
+        User objUser = mapper.readValue(jsonString, User.class);
+        System.out.println(objUser.getName());
+        System.out.println(objUser.getAge());
     }
 }
