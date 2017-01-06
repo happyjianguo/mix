@@ -1,4 +1,4 @@
-package test.ringbuffer;
+package test.disruptor;
 
 /**
  * Created by joshua on 16/11/24.
