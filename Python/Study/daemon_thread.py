@@ -3,7 +3,8 @@
 
 import threading
 import time
-
+import sys
+import line_profiler
 
 # 封装一个线程包的类
 class MyThread(threading.Thread):
@@ -44,6 +45,10 @@ def task():
 
 
 if __name__ == "__main__":
+    prof = line_profiler.LineProfiler(task)
+    prof.enable()
     print "main threading start: %s" % (time.ctime())
     task()
     print "main threading end: %s" % (time.ctime())
+    prof.disable()
+    prof.print_stats(sys.stdout)
