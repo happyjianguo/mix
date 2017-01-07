@@ -9,7 +9,9 @@ import java.util.Queue;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by joshua on 17/1/7.
+ * Gauge metrics
+ *
+ * @see http://wuchong.me/blog/2015/08/01/getting-started-with-metrics/
  */
 public class GaugeTest {
     public static Queue<String> q = new LinkedList<String>();
