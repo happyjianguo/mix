@@ -16,10 +16,23 @@ public class TestReflect {
         return property;
     }
 
+    public Object getStaticProperty(String className, String fieldName) throws Exception {
+        Class<?> ownerClass = Class.forName(className);
+        Field field = ownerClass.getField(fieldName);
+        Object property = field.get(ownerClass);
+        return property;
+    }
+
+//    public static void main(String[] args) throws Exception {
+//        TestReflect testReflect = new TestReflect();
+//        PrintTimeTask printTimeTask = new PrintTimeTask();
+//        printTimeTask.setName("fanteathy");
+//        System.out.println(testReflect.getProperty(printTimeTask, "name"));
+//    }
+
     public static void main(String[] args) throws Exception {
         TestReflect testReflect = new TestReflect();
         PrintTimeTask printTimeTask = new PrintTimeTask();
-        printTimeTask.setName("fanteathy");
-        System.out.println(testReflect.getProperty(printTimeTask, "name"));
+        System.out.println(testReflect.getStaticProperty("test.PrintTimeTask", "testAttr"));
     }
 }

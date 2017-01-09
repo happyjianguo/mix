@@ -9,6 +9,8 @@ import java.util.TimerTask;
  */
 public class PrintTimeTask extends TimerTask {
 
+    public static final String testAttr = "hello,world";
+
     public String getName() {
         return name;
     }
