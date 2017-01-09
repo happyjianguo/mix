@@ -36,3 +36,5 @@ soa-backup/
 .DS_Store
 Thumbs.db
 
+# php ignore
+/*/*/vendor/*
