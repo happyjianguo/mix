@@ -33,4 +33,8 @@ public class PrintTimeTask extends TimerTask {
         Timer timer = new Timer("hello");
         timer.schedule(new PrintTimeTask(), 1000L, 2000L);
     }
+
+    public void printStr(String str) {
+        System.out.println(str);
+    }
 }

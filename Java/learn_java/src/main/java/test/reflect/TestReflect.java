@@ -3,9 +3,12 @@ package test.reflect;
 import test.PrintTimeTask;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 
 /**
- * Created by joshua on 17/1/9.
+ * Java Reflect
+ *
+ * @see http://www.jb51.net/article/62070.htm
  */
 public class TestReflect {
 
@@ -23,6 +26,16 @@ public class TestReflect {
         return property;
     }
 
+    public Object invokeMethod(Object owner, String methodName, Object[] args) throws Exception {
+        Class<?> ownerClass = owner.getClass();
+        Class[] argsClass = new Class[args.length];
+        for (int i = 0, j = args.length; i < j; i++) {
+            argsClass[i] = args[i].getClass();
+        }
+        Method method = ownerClass.getMethod(methodName, argsClass);
+        return method.invoke(owner, args);
+    }
+
 //    public static void main(String[] args) throws Exception {
 //        TestReflect testReflect = new TestReflect();
 //        PrintTimeTask printTimeTask = new PrintTimeTask();
@@ -30,9 +43,15 @@ public class TestReflect {
 //        System.out.println(testReflect.getProperty(printTimeTask, "name"));
 //    }
 
+//    public static void main(String[] args) throws Exception {
+//        TestReflect testReflect = new TestReflect();
+//        PrintTimeTask printTimeTask = new PrintTimeTask();
+//        System.out.println(testReflect.getStaticProperty("test.PrintTimeTask", "testAttr"));
+//    }
+
     public static void main(String[] args) throws Exception {
         TestReflect testReflect = new TestReflect();
         PrintTimeTask printTimeTask = new PrintTimeTask();
-        System.out.println(testReflect.getStaticProperty("test.PrintTimeTask", "testAttr"));
+        testReflect.invokeMethod(printTimeTask, "printStr", new String[]{"invoke method"});
     }
 }
