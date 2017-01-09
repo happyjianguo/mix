@@ -2,6 +2,7 @@ package test.reflect;
 
 import test.PrintTimeTask;
 
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
@@ -36,6 +37,17 @@ public class TestReflect {
         return method.invoke(owner, args);
     }
 
+    public Object genInstance(String className, Object[] args) throws Exception {
+        Class<?> newoneClass = Class.forName(className);
+        Class[] argsClass = new Class[args.length];
+        for (int i = 0, j = args.length; i < j; i++) {
+            argsClass[i] = args[i].getClass();
+        }
+//        return  newoneClass.getClass().newInstance()
+        Constructor cons = newoneClass.getConstructor(argsClass);
+        return cons.newInstance(args);
+    }
+
 //    public static void main(String[] args) throws Exception {
 //        TestReflect testReflect = new TestReflect();
 //        PrintTimeTask printTimeTask = new PrintTimeTask();
@@ -49,9 +61,15 @@ public class TestReflect {
 //        System.out.println(testReflect.getStaticProperty("test.PrintTimeTask", "testAttr"));
 //    }
 
+//    public static void main(String[] args) throws Exception {
+//        TestReflect testReflect = new TestReflect();
+//        PrintTimeTask printTimeTask = new PrintTimeTask();
+//        testReflect.invokeMethod(printTimeTask, "printStr", new String[]{"invoke method"});
+//    }
+
     public static void main(String[] args) throws Exception {
         TestReflect testReflect = new TestReflect();
-        PrintTimeTask printTimeTask = new PrintTimeTask();
-        testReflect.invokeMethod(printTimeTask, "printStr", new String[]{"invoke method"});
+        PrintTimeTask printTimeTask = (PrintTimeTask) testReflect.genInstance("test.PrintTimeTask", new String[]{"test"});
+        System.out.println(printTimeTask.testAttr);
     }
 }
