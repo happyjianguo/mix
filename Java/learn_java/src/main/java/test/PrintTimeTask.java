@@ -8,6 +8,21 @@ import java.util.TimerTask;
  * Created by joshua on 16/12/10.
  */
 public class PrintTimeTask extends TimerTask {
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String name;
+
+    public static void testMethod() {
+        System.out.println("test");
+    }
+
     public void run() {
         System.out.println(new Date().toString());
     }
