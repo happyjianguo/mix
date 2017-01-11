@@ -166,5 +166,20 @@
             <version>2.33</version>
         </dependency>
 
+        <!--redis分布式锁-->
+        <!-- https://mvnrepository.com/artifact/org.redisson/redisson -->
+        <dependency>
+            <groupId>org.redisson</groupId>
+            <artifactId>redisson</artifactId>
+            <version>3.2.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.7</version>
+        </dependency>
+
+
     </dependencies>
 </project>
