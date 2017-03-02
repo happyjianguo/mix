@@ -5,7 +5,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * Callable Future
+ * Callable Return Value Test
  */
 public class PrimeThread {
 
