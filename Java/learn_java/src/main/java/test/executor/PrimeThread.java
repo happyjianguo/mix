@@ -12,6 +12,7 @@ public class PrimeThread {
     public static void main(String[] args) throws Exception {
         ExecutorService service = Executors.newCachedThreadPool();
         System.out.println("==" + service.submit(new TaskResult(66)).get().toString());
+        System.out.println("Main thread");
     }
 }
 
@@ -24,6 +25,11 @@ class TaskResult implements Callable<String> {
     }
 
     public String call() throws Exception {
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return "result of TaskWithResult " + id;
     }
 }
