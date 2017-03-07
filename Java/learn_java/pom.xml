@@ -23,10 +23,14 @@
             <version>${spring-framework-version}</version>
         </dependency>
         <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aspects</artifactId>
+            <version>${spring-framework-version}</version>
+        </dependency>
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>3.8.1</version>
-            <scope>test</scope>
+            <version>4.11</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
         <dependency>
