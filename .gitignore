@@ -23,6 +23,7 @@ target/
 /*/*/target/*
 
 # temp ignore
+*.class
 *.log
 *.cache
 *.diff
