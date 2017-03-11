@@ -32,6 +32,7 @@ target/
 *.pyc
 bin/
 soa-backup/
+*.txt
 
 # system ignore
 .DS_Store
