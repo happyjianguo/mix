@@ -30,6 +30,14 @@ public class ConnMysql {
             while (rst.next()) {
                 System.out.println(rst.getInt(1) + "\t" + rst.getString(3));
             }
+            // 事务测试
+            conn.setAutoCommit(false);
+            String username = "test" + String.valueOf((int) (100 * Math.random()));
+            String strSql = "insert into user(`username`,`birthday`) values('" +
+                    username + "','2017-03-01')";
+            stmt.execute(strSql);
+            System.out.println(strSql);
+            conn.commit();
         } catch (Exception e) {
             e.printStackTrace();
         }
