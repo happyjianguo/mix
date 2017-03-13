@@ -2,9 +2,9 @@ package test;
 
 import org.apache.commons.collections.map.HashedMap;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Map;
 import java.util.Properties;
 
@@ -24,7 +24,7 @@ public class ObjectPoolFactory {
     public void initPool(String fileName) throws InstantiationException,
             IllegalAccessException, ClassNotFoundException {
         try {
-            FileInputStream fis = new FileInputStream(fileName);
+            InputStream fis = this.getClass().getResourceAsStream("/" + fileName);
             Properties props = new Properties();
             props.load(fis);
             for (String name : props.stringPropertyNames()) {
@@ -45,6 +45,6 @@ public class ObjectPoolFactory {
     public static void main(String[] args) throws Exception {
         ObjectPoolFactory pf = new ObjectPoolFactory();
         pf.initPool("obj.txt");
-        System.out.println(pf.getObject("a"));
+        System.out.println(pf.getObject("LongEvent"));
     }
 }
