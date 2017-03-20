@@ -7,7 +7,7 @@ import java.util.Queue;
  * 消费通道
  */
 public class Channel {
-    private Queue<Good> goodList = new LinkedList<>();
+    private Queue<Good> goodList = new LinkedList<Good>();
 
     public synchronized Good get() {
         if (goodList.size() == 0) {
