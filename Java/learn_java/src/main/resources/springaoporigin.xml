@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="movie" class="test.springaoporigin.Movie"></bean>
+
+    <bean id="audience" class="test.springaoporigin.Audience"></bean>
+
+    <aop:config>
+        <aop:aspect ref="audience">
+            <aop:pointcut id="playMovie" expression="execution(* test.springaoporigin.Movie.playMovie(..))"/>
+
+            <aop:before pointcut-ref="playMovie" method="takeSeats"/>
+            <aop:before pointcut-ref="playMovie" method="turnOffCellPhones"/>
+
+            <aop:after-returning pointcut-ref="playMovie" method="applaud"/>
+
+            <aop:after-throwing pointcut-ref="playMovie" method="demandRefund"/>
+
+        </aop:aspect>
+    </aop:config>
+
+</beans>
