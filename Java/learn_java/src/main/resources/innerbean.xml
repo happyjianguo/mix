@@ -11,8 +11,11 @@
     </bean>-->
 
     <!-- autowire by name -->
-    <bean id="textEditor" class="test.innerbean.TextEditor" autowire="byName"></bean>
+    <!--<bean id="textEditor" class="test.innerbean.TextEditor" autowire="byName"></bean>-->
+    <bean id="textEditor" class="test.innerbean.TextEditor" autowire="byType"></bean>
 
-    <bean id="spellChecker" class="test.innerbean.SpellChecker"></bean>
+    <!--<bean id="spellChecker" class="test.innerbean.SpellChecker"></bean>-->
+
+    <bean id="spellChecker1" class="test.innerbean.SpellChecker"></bean>
 
 </beans>
