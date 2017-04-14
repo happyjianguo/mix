@@ -4,10 +4,15 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="textEditor" class="test.innerbean.TextEditor">
+    <!--<bean id="textEditor" class="test.innerbean.TextEditor">
         <property name="spellChecker">
             <bean id="spellChecker" class="test.innerbean.SpellChecker"></bean>
         </property>
-    </bean>
+    </bean>-->
+
+    <!-- autowire by name -->
+    <bean id="textEditor" class="test.innerbean.TextEditor" autowire="byName"></bean>
+
+    <bean id="spellChecker" class="test.innerbean.SpellChecker"></bean>
 
 </beans>
