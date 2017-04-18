@@ -10,4 +10,6 @@ public interface UserMapper {
     UserModel selectUserByID(int id);
 
     List<UserModel> selectUsers(String userName);
+
+    void addUser(UserModel user);
 }

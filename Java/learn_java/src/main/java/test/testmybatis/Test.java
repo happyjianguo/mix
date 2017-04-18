@@ -30,15 +30,45 @@ public class Test {
     }
 
     public static void main(String[] args) {
+
+        //select
+        Test test = new Test();
+        test.getUserList("joshua");
+
+        // add
+//        test.addUser();
+    }
+
+    // select
+    public void getUserList(String userName) {
         SqlSession session = sqlSessionFactory.openSession();
         try {
             UserMapper userMapper = session.getMapper(UserMapper.class);
-            List<UserModel> users = userMapper.selectUsers("joshua");
+            List<UserModel> users = userMapper.selectUsers(userName);
             for (UserModel user : users) {
                 System.out.println(user.getUserAddress());
             }
         } finally {
             session.close();
         }
+    }
+
+    // add
+    public void addUser() {
+        UserModel user = new UserModel();
+        user.setUserName("fanteathy");
+        user.setUserAge("29");
+        user.setUserAddress("Jiading");
+
+        SqlSession session = sqlSessionFactory.openSession();
+        try {
+            UserMapper userMapper = session.getMapper(UserMapper.class);
+            userMapper.addUser(user);
+            session.commit();
+            System.out.println("The inserted user id is " + user.getId());
+        } finally {
+            session.close();
+        }
+
     }
 }

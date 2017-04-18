@@ -17,4 +17,11 @@
     <select id="selectUsers" parameterType="string" resultMap="resultListUser">
         select * from user where userName like CONCAT('%',#{userName},'%' )
     </select>
+
+    <insert id="addUser" parameterType="test.testmybatis.UserModel"
+            useGeneratedKeys="true" keyProperty="id">
+        insert into user(userName, userAge, userAddress) values(
+        #{userName}, #{userAge}, #{userAddress}
+        )
+    </insert>
 </mapper>
