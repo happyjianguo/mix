@@ -6,7 +6,7 @@ import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
 /**
- * @see http://shijingyiyi.iteye.com/blog/1675360
+ * {@link http://shijingyiyi.iteye.com/blog/1675360}
  */
 public class SendMail {
     public static void main(String[] args) {
