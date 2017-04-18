@@ -10,7 +10,7 @@ import java.io.Reader;
 /**
  * Created by joshua on 17/4/18.
  */
-public class TestTwo {
+public class TestOrigin {
 
     private static SqlSessionFactory sqlSessionFactory;
     private static Reader reader;
@@ -31,10 +31,8 @@ public class TestTwo {
     public static void main(String[] args) {
         SqlSession session = sqlSessionFactory.openSession();
         try {
-            IUserOperation userOperation = session.getMapper(IUserOperation.class);
-            UserModel user = userOperation.selectUserByID(1);
+            UserModel user = (UserModel) session.selectOne("test.testmybatis.UserMapper.selectUserByID", 1);
             System.out.println(user.getUserAddress());
-            System.out.println(user.getUserName());
         } finally {
             session.close();
         }

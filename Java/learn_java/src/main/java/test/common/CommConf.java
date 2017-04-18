@@ -8,7 +8,7 @@ import org.apache.commons.configuration.PropertiesConfiguration;
  */
 public class CommConf {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         try {
             PropertiesConfiguration config = new PropertiesConfiguration("usergui.properties");
             config.setProperty("colors.background", "#000000");

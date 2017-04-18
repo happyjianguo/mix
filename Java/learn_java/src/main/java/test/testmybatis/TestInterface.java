@@ -6,12 +6,11 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.io.Reader;
-import java.util.List;
 
 /**
  * Created by joshua on 17/4/18.
  */
-public class Test {
+public class TestInterface {
 
     private static SqlSessionFactory sqlSessionFactory;
     private static Reader reader;
@@ -32,11 +31,10 @@ public class Test {
     public static void main(String[] args) {
         SqlSession session = sqlSessionFactory.openSession();
         try {
-            UserMapper userMapper = session.getMapper(UserMapper.class);
-            List<UserModel> users = userMapper.selectUsers("joshua");
-            for (UserModel user : users) {
-                System.out.println(user.getUserAddress());
-            }
+            IUserOperation userOperation = session.getMapper(IUserOperation.class);
+            UserModel user = userOperation.selectUserByID(1);
+            System.out.println(user.getUserAddress());
+            System.out.println(user.getUserName());
         } finally {
             session.close();
         }

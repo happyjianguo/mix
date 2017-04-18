@@ -1,6 +1,7 @@
 package test.jackson;
 
 //JSON序列化和反序列化使用的User类
+
 import java.util.Date;
 
 public class User {
@@ -12,6 +13,7 @@ public class User {
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -19,6 +21,7 @@ public class User {
     public Integer getAge() {
         return age;
     }
+
     public void setAge(Integer age) {
         this.age = age;
     }
@@ -26,6 +29,7 @@ public class User {
     public Date getBirthday() {
         return birthday;
     }
+
     public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
@@ -33,6 +37,7 @@ public class User {
     public String getEmail() {
         return email;
     }
+
     public void setEmail(String email) {
         this.email = email;
     }

@@ -6,7 +6,6 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.io.InputStream;
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by joshua on 16/12/13.

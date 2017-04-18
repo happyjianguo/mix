@@ -12,7 +12,7 @@ public class SampleBean {
         this.age = age;
     }
 
-    public SampleBean(){
+    public SampleBean() {
 
     }
 

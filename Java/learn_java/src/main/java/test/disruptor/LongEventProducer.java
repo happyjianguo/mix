@@ -9,16 +9,17 @@ import java.nio.ByteBuffer;
  */
 public class LongEventProducer {
     private final RingBuffer<LongEvent> ringBuffer;
+
     public LongEventProducer(RingBuffer<LongEvent> ringBuffer) {
         this.ringBuffer = ringBuffer;
     }
 
-    public void onData(ByteBuffer bb){
+    public void onData(ByteBuffer bb) {
         long sequence = ringBuffer.next();
-        try{
+        try {
             LongEvent event = ringBuffer.get(sequence);
             event.setValue(bb.getLong(0));
-        }finally {
+        } finally {
             ringBuffer.publish(sequence);
         }
     }

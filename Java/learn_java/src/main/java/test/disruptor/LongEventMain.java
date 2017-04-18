@@ -12,7 +12,7 @@ import java.util.concurrent.Executors;
  */
 public class LongEventMain {
 
-    public static void main(String[] args) throws InterruptedException{
+    public static void main(String[] args) throws InterruptedException {
         Executor executor = Executors.newCachedThreadPool();
         LongEventFactory factory = new LongEventFactory();
         int bufferSize = 1024;
@@ -22,7 +22,7 @@ public class LongEventMain {
         RingBuffer<LongEvent> ringBuffer = disruptor.getRingBuffer();
         LongEventProducer producer = new LongEventProducer(ringBuffer);
         ByteBuffer bb = ByteBuffer.allocate(8);
-        for(long l=0;true;l++){
+        for (long l = 0; true; l++) {
             bb.putLong(0, l);
             producer.onData(bb);
             Thread.sleep(1000);
