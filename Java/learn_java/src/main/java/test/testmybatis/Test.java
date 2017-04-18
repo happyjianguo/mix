@@ -40,6 +40,9 @@ public class Test {
 
         // update
         test.updateUser();
+
+        // delete
+        test.deleteUser();
     }
 
     // select
@@ -85,6 +88,19 @@ public class Test {
             userMapper.updateUser(user);
             session.commit();
             System.out.println("update record, id is " + user.getId());
+        } finally {
+            session.close();
+        }
+    }
+
+    // delete
+    public void deleteUser() {
+        SqlSession session = sqlSessionFactory.openSession();
+        try {
+            UserMapper userMapper = session.getMapper(UserMapper.class);
+            userMapper.deleteUser(3);
+            session.commit();
+            System.out.println("delete user");
         } finally {
             session.close();
         }

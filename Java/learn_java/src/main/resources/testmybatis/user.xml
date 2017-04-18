@@ -28,4 +28,8 @@
     <update id="updateUser" parameterType="test.testmybatis.UserModel">
         update user set userName=#{userName},userAge=#{userAge},userAddress=#{userAddress} where id=#{id}
     </update>
+
+    <delete id="deleteUser" parameterType="int">
+        delete from user where id=#{id}
+    </delete>
 </mapper>
