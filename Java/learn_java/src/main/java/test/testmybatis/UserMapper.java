@@ -12,4 +12,6 @@ public interface UserMapper {
     List<UserModel> selectUsers(String userName);
 
     void addUser(UserModel user);
+
+    void updateUser(UserModel user);
 }

@@ -24,4 +24,8 @@
         #{userName}, #{userAge}, #{userAddress}
         )
     </insert>
+
+    <update id="updateUser" parameterType="test.testmybatis.UserModel">
+        update user set userName=#{userName},userAge=#{userAge},userAddress=#{userAddress} where id=#{id}
+    </update>
 </mapper>

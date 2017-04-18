@@ -37,6 +37,9 @@ public class Test {
 
         // add
 //        test.addUser();
+
+        // update
+        test.updateUser();
     }
 
     // select
@@ -70,5 +73,20 @@ public class Test {
             session.close();
         }
 
+    }
+
+    // update
+    public void updateUser() {
+        SqlSession session = sqlSessionFactory.openSession();
+        try {
+            UserMapper userMapper = session.getMapper(UserMapper.class);
+            UserModel user = userMapper.selectUserByID(2);
+            user.setUserAddress("Putuo");
+            userMapper.updateUser(user);
+            session.commit();
+            System.out.println("update record, id is " + user.getId());
+        } finally {
+            session.close();
+        }
     }
 }
