@@ -9,9 +9,26 @@
         <result column="userAge" property="userAge"/>
         <result column="userAddress" property="userAddress"/>
     </resultMap>
+
+    <resultMap id="resultUserArticleList" type="test.testmybatis.Article">
+        <id property="id" column="aid"></id>
+        <result property="title" column="title"></result>
+        <result property="content" column="content"></result>
+
+        <association property="user" javaType="test.testmybatis.UserModel">
+            <id property="id" column="id"></id>
+            <result property="userName" column="userName"></result>
+            <result property="userAddress" column="userAddress"></result>
+        </association>
+    </resultMap>
     <!--<mapper namespace="test.testmybatis.IUserOperation">-->
     <select id="selectUserByID" parameterType="int" resultType="User">
         select * from `user` where id = #{id}
+    </select>
+
+    <select id="getUserArticles" parameterType="int" resultMap="resultUserArticleList">
+        SELECT user.id, user.userName, user.userAddress, article.id aid, article.title, article.content
+        from user, article where user.id = article.userid and user.id = #{id}
     </select>
 
     <select id="selectUsers" parameterType="string" resultMap="resultListUser">

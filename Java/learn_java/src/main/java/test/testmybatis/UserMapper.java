@@ -16,4 +16,6 @@ public interface UserMapper {
     void updateUser(UserModel user);
 
     void deleteUser(int id);
+
+    List<Article> getUserArticles(int userid);
 }
