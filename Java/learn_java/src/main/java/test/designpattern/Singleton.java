@@ -1,7 +1,7 @@
 package test.designpattern;
 
 /**
- * Created by joshua on 17/4/24.
+ * 单例模式
  */
 public class Singleton {
 
