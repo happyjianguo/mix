@@ -1,4 +1,4 @@
-package test.designpattern;
+package test.designpattern.singleton;
 
 /**
  * 单例模式
