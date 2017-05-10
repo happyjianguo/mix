@@ -304,6 +304,11 @@
             <version>21.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <version>1.8.6</version>
+        </dependency>
 
     </dependencies>
 </project>
