@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE a [<!ENTITY b SYSTEM "file:///etc/passwd">]>
+<some>
+    <technology name="groovyProperty">
+        <name>GroovyNode</name>
+    </technology>
+</some>
