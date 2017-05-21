@@ -7,9 +7,15 @@ package test.testgroovy
  */
 class GroovyDemo {
 
-    public String hello() {
-        def map = ['name': 'john', 'age': 14, 'sex': 'boy']
-        map = map + ['weight': 25]
-        print map['name']
+    public String writeFile() {
+        new File('haiku.txt').withWriter('utf-8') {
+            writer ->
+                writer.write 'test file'
+        }
+    }
+
+    public String executeCmd() {
+        def process = "ls -l".execute()
+        print process.text
     }
 }
