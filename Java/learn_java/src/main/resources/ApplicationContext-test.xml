@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
 
 
@@ -18,6 +19,46 @@
           class="test.testaop.LoginServiceImpl"/>
     <bean id="log"
           class="test.testaop.Log"/>
+
+    <bean id="cake" class="test.testaop.Cake">
+        <property name="id" value="#{1}"/>
+        <property name="name" value="#{'blueberry cheese cake'}"/>
+        <property name="size" value="#{5.5}"/>
+    </bean>
+
+    <bean id="bigOven"
+          class="test.testaop.Oven"
+          p:name="bigOven"/>
+
+    <bean id="smallOven"
+          class="test.testaop.Oven"
+          p:name="smallOven" p:size="#{T(java.lang.Math).PI}"/>
+
+    <bean id="mike"
+          class="test.testaop.Chief"
+          p:name="mike">
+        <property name="oven" ref="#{jack.oven}"/>
+        <property name="friend" ref="jack"/>
+    </bean>
+
+    <bean id="jack"
+          class="test.testaop.Chief">
+        <property name="oven" ref="smallOven"/>
+        <property name="friend" ref="mike"/>
+    </bean>
+
+    <bean id="rose"
+          class="test.testaop.Chief"
+          p:name="rose">
+        <property name="oven" ref="#{jack.getFriend().getOven()}"/>
+        <property name="friend" ref="jack"/>
+    </bean>
+
+    <bean id="dick"
+          class="test.testaop.Chief"
+          p:name="dick">
+        <property name="oven" ref="#{bigOven}"/>
+    </bean>
 
     <aop:config>
         <aop:aspect ref="log">
