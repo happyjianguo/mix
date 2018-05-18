@@ -26,6 +26,11 @@ public class ChiefTest {
     @Test
     public void testChief() {
 
+        String aa = null;
+        if(aa == null) {
+            System.out.println("test");
+        }
+
         Chief jack = (Chief) applicationContext.getBean(Chief.class);
         Cake cake = applicationContext.getBean(Cake.class);
         cake.setName("blueberryCheeseCake");
