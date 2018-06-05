@@ -1,4 +1,4 @@
-package test.mixtest;
+package qlm.qlm14;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
