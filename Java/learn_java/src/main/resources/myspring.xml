@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<beans>
+    <bean id="mybean" class="myspring.test.Blind"></bean>
+    <bean id="appstartlistener" class="myspring.test.ApplicationStartLister"></bean>
+</beans>
